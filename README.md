@@ -18,6 +18,13 @@ Run the CLI
 ./recall.sh export    # build data/samples.csv from data/trials.csv
 ```
 
+## Replicating the Statistical Analysis
+Run the the scripts/data_analysis.py script from the root of the repository and observe terminal output as results.
+
+```sh
+python3 scripts/data_analysis.py
+```
+
 ## Data dictionary
 
 ### `data/trials.csv` (raw, one row per trial)
@@ -60,7 +67,3 @@ Written by `./recall.sh export`. Never edit by hand; regenerate it from `trials.
 | `ES_mean_log_ms` | natural log of ms; empty if no usable trials | Mean of `ln(first_key_ms)` over usable Spanish trials. |
 | `valid` | `True` / `False` | `True` if both `EN_n_usable` and `ES_n_usable` are at least 3. Only valid samples enter the analysis. |
 | `log_diff_es_minus_en` | log-ms; empty if `valid` is `False` | `ES_mean_log_ms - EN_mean_log_ms`. The paired t-test runs on this column; positive means Spanish was slower. |
-
-## Design constants
-
-All thresholds above (sample targets, the 250 ms and 6 s cutoffs, trials per language) and their justification live in [`recall/config.py`](recall/config.py).
