@@ -1,2 +1,4 @@
 scipy
 statsmodels
+matplotlib
+python-pptx
